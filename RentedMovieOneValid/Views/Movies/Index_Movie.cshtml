@@ -1,0 +1,26 @@
+﻿@model List<RentedMovieOneValid.Models.Movies>
+@{
+    ViewBag.Title = "Index_Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+<table class="table table-bordered table-hover" >
+    <tr>
+        <td>Movie_id</td>
+        <td>Movie_Name</td>
+    </tr>
+    <tbody>
+        @foreach(var b in Model)
+     {
+            <tr>
+                <td>
+                    @b.id
+                </td>
+                <td>
+                    @b.MovieName
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

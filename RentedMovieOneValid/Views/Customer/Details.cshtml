@@ -1,0 +1,18 @@
+﻿@model RentedMovieOneValid.Models.Customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<ul>
+    <li>
+        Customer Id : @Model.id
+    </li>
+    <li>
+        Name : @Model.name
+    </li>
+    <li>
+        Date Of Birth : @Model.DateOfBirth.ToShortDateString()
+    </li>
+</ul>
