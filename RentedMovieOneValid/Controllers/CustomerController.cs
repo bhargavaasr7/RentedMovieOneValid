@@ -3,21 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 using RentedMovieOneValid.Models;
 
 namespace RentedMovieOneValid.Controllers
 {
     public class CustomerController : Controller
     {
+        private  ApplicationDbContext dbContext=null;
+        public CustomerController()
+        {
+            dbContext = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            dbContext.Dispose();
+        }
         // GET: Customer
         public ActionResult Index()
         {
-            List<Customer> customers = GetCustomers();
+            List<Customer> customers = dbContext.customers.Include(m =>m.MembershipType).ToList();
             return View(customers);
         }
-        public ActionResult Details(int Id)
+        public ActionResult Details(int id)
         {
-            var customer = GetCustomers().SingleOrDefault(c => c.id == Id);
+            var customer = dbContext.customers.Include(m=>m.MembershipType).SingleOrDefault(c => c.id == id);
             if (customer==null)
             {
                 return HttpNotFound();
@@ -33,6 +43,10 @@ namespace RentedMovieOneValid.Controllers
                 new Customer{id=3,name="sankarapu",DateOfBirth=Convert.ToDateTime("10-09-1996")}
             };
             return customers;
+        }
+        public ActionResult Create()
+        {
+            return View();
         }
     }
 }

@@ -176,17 +176,54 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MembershipTypeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905021135462_InitialModel.cs" />
+    <Compile Include="Migrations\201905021135462_InitialModel.Designer.cs">
+      <DependentUpon>201905021135462_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021256274_CreateTableMembershipType.cs" />
+    <Compile Include="Migrations\201905021256274_CreateTableMembershipType.Designer.cs">
+      <DependentUpon>201905021256274_CreateTableMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905021307510_ForiegnKeyInCustomerTable.cs" />
+    <Compile Include="Migrations\201905021307510_ForiegnKeyInCustomerTable.Designer.cs">
+      <DependentUpon>201905021307510_ForiegnKeyInCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030348012_createGenreTableWithPrimary.cs" />
+    <Compile Include="Migrations\201905030348012_createGenreTableWithPrimary.Designer.cs">
+      <DependentUpon>201905030348012_createGenreTableWithPrimary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030353018_createTableMovieWithForiegnKey.cs" />
+    <Compile Include="Migrations\201905030353018_createTableMovieWithForiegnKey.Designer.cs">
+      <DependentUpon>201905030353018_createTableMovieWithForiegnKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030409473_AddRecordsToMembershipType.cs" />
+    <Compile Include="Migrations\201905030409473_AddRecordsToMembershipType.Designer.cs">
+      <DependentUpon>201905030409473_AddRecordsToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030458571_AddRecordsToMembershipTypeNew.cs" />
+    <Compile Include="Migrations\201905030458571_AddRecordsToMembershipTypeNew.Designer.cs">
+      <DependentUpon>201905030458571_AddRecordsToMembershipTypeNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905030714510_CustColNameRequired.cs" />
+    <Compile Include="Migrations\201905030714510_CustColNameRequired.Designer.cs">
+      <DependentUpon>201905030714510_CustColNameRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Movies.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -249,10 +286,13 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Movies\Index_Movie.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\MembershipType\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Cust\" />
+    <Folder Include="Views\Genre\" />
     <Folder Include="Views\GetMovieByCust\" />
   </ItemGroup>
   <ItemGroup>
@@ -267,6 +307,32 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905021135462_InitialModel.resx">
+      <DependentUpon>201905021135462_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021256274_CreateTableMembershipType.resx">
+      <DependentUpon>201905021256274_CreateTableMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905021307510_ForiegnKeyInCustomerTable.resx">
+      <DependentUpon>201905021307510_ForiegnKeyInCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905030348012_createGenreTableWithPrimary.resx">
+      <DependentUpon>201905030348012_createGenreTableWithPrimary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905030353018_createTableMovieWithForiegnKey.resx">
+      <DependentUpon>201905030353018_createTableMovieWithForiegnKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905030409473_AddRecordsToMembershipType.resx">
+      <DependentUpon>201905030409473_AddRecordsToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905030458571_AddRecordsToMembershipTypeNew.resx">
+      <DependentUpon>201905030458571_AddRecordsToMembershipTypeNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905030714510_CustColNameRequired.resx">
+      <DependentUpon>201905030714510_CustColNameRequired.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

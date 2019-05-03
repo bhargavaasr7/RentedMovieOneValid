@@ -5,19 +5,24 @@
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <h2>Customer details</h2>
-<table class="table table-bordered table-hover" >
+<table class="table table-bordered table-hover">
     <tr>
         <th>Name</th>
+        <th>Membershiptype</th>
     </tr>
     <tbody>
-        @foreach(var c in Model)
+        @foreach (var c in Model)
         {
             <tr>
-              
+
                 <td>
-                    @Html.ActionLink(c.name,"Details","Customer",new {Id=c.id},null)
+                    @Html.ActionLink(c.name, "Details", "Customer", new { id = c.id }, null)
                 </td>
-                
+                <td>
+                    @c.MembershipType.MembershipTypeName
+
+                </td>
+
             </tr>
         }
     </tbody>

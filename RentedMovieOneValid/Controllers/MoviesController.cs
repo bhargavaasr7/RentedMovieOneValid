@@ -12,16 +12,16 @@ namespace RentedMovieOneValid.Controllers
         // GET: Movies
         public ActionResult Index_Movie()
         {
-            List<Movies> movies = GetMovies();
+            List<Movie> movies = GetMovies();
             return View(movies);
         }
-        public List<Movies> GetMovies()
+        public List<Movie> GetMovies()
         {
-            List<Movies> movies = new List<Movies>
+            List<Movie> movies = new List<Movie>
             {
-                new Movies{id=1,MovieName="Oopiri"},
-                new Movies{id=2,MovieName="Race gurram"},
-                new Movies{id=3,MovieName="Run_Raja_Run"}
+                new Movie{id=1,MovieName="Oopiri"},
+                new Movie{id=2,MovieName="Race gurram"},
+                new Movie{id=3,MovieName="Run_Raja_Run"}
             };
             return movies;
         }

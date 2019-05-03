@@ -24,7 +24,10 @@ namespace RentedMovieOneValid.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Customer> customers { get; set; }
+        public DbSet<MembershipType> membershipTypes { get; set; }
+        public DbSet<Genre> genres { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
