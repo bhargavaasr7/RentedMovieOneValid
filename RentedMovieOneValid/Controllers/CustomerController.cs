@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using RentedMovieOneValid.Models;
+using RentedMovieOneValid.View_Model;
 
 namespace RentedMovieOneValid.Controllers
 {
@@ -46,7 +47,12 @@ namespace RentedMovieOneValid.Controllers
         }
         public ActionResult Create()
         {
-            return View();
+            CustomerMembershipViewModel viewModel = new CustomerMembershipViewModel();
+            Customer customer = new Customer();
+            var membershiptypes = dbContext.membershipTypes.ToList();
+            viewModel.Customer = customer;
+            viewModel.membershipTypes = membershiptypes;
+            return View(viewModel);
         }
     }
 }

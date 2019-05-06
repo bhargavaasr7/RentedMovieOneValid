@@ -13,10 +13,14 @@ namespace RentedMovieOneValid.Models
         [StringLength(100)]
         [Display(Name ="Customer Name")]
         public string name { get; set; }
+      
         [Display(Name = "Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
+
         //reference the table
         public MembershipType MembershipType { get; set; }
+
         //reference a column
         [Display(Name = "Membership Type")]
         public int MembershipTypeId { get; set; }
