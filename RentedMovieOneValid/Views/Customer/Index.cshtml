@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
+@Html.ActionLink("Add New Customer","Create","Customer")
 <h2>Customer details</h2>
 <table class="table table-bordered table-hover">
     <tr>
         <th>Name</th>
         <th>Membershiptype</th>
+        <th>Action</th>
+
     </tr>
     <tbody>
         @foreach (var c in Model)
@@ -21,6 +24,9 @@
                 <td>
                     @c.MembershipType.MembershipTypeName
 
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Customer", new { id=c.id},null)
                 </td>
 
             </tr>

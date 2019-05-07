@@ -45,6 +45,7 @@ namespace RentedMovieOneValid.Controllers
             };
             return customers;
         }
+        [HttpGet]
         public ActionResult Create()
         {
             CustomerMembershipViewModel viewModel = new CustomerMembershipViewModel();
@@ -53,6 +54,42 @@ namespace RentedMovieOneValid.Controllers
             viewModel.Customer = customer;
             viewModel.membershipTypes = membershiptypes;
             return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Create(Customer customer)
+        {
+            dbContext.customers.Add(customer);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index", "Customer");
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var customer = dbContext.customers.SingleOrDefault(c => c.id == id);
+            var memTypes = dbContext.membershipTypes.ToList();
+            CustomerMembershipViewModel viewModel = new CustomerMembershipViewModel
+            {
+                Customer = customer,
+               membershipTypes = memTypes
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Edit(Customer customer)
+        {
+            var customerTbl = dbContext.customers.SingleOrDefault(c => c.id == customer.id);
+         if(customerTbl==null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                customerTbl.name = customer.name;
+                customerTbl.DateOfBirth = customer.DateOfBirth;
+                customerTbl.MembershipTypeId = customer.MembershipTypeId;
+                dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index", "Customer");
         }
     }
 }

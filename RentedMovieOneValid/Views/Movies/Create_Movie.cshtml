@@ -1,0 +1,34 @@
+﻿@model RentedMovieOneValid.View_Model.MovieMembeshipViewModel
+@{
+    ViewBag.Title = "Create_Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+<div class="form-group">
+  
+    @Html.LabelFor(c => c.Movie.MovieName)
+    @Html.TextBoxFor(c => c.Movie.MovieName, new { @class = "form-control" })
+</div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.ReleaseDate)
+        @Html.EditorFor(c => c.Movie.ReleaseDate, new
+   {
+       htmlAttributes
+       = new { @class = "form-control" }
+   })
+    </div>
+    <div>
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.Stock_Available)
+        @Html.DropDownListFor(c => c.Movie.Stock_Available,
+       new SelectList(Model.genres,"id","Genre"),"---select---",
+       new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" name="cmdSubmit" value="Add New" class="btn btn-primary" />
+    </div>
+}
