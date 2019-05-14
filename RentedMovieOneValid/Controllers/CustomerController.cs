@@ -8,7 +8,8 @@ using RentedMovieOneValid.Models;
 using RentedMovieOneValid.View_Model;
 
 namespace RentedMovieOneValid.Controllers
-{
+{   [RequireHttps]
+    [Authorize]
     public class CustomerController : Controller
     {
         private  ApplicationDbContext dbContext=null;

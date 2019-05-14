@@ -6,27 +6,33 @@
 <h2>Create</h2>
 @using (Html.BeginForm())
 {
-<div class="form-group">
-  
-    @Html.LabelFor(c => c.Movie.MovieName)
-    @Html.TextBoxFor(c => c.Movie.MovieName, new { @class = "form-control" })
-</div>
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.ReleaseDate)
-        @Html.EditorFor(c => c.Movie.ReleaseDate, new
+
+        @Html.LabelFor(m => m.Movie.MovieName)
+        @Html.TextBoxFor(m => m.Movie.MovieName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.ReleaseDate)
+        @Html.EditorFor(m => m.Movie.ReleaseDate, new
    {
        htmlAttributes
        = new { @class = "form-control" }
    })
     </div>
-    <div>
-
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Adddate)
+        @Html.EditorFor(m => m.Movie.Adddate, new { htmlAttributes = new { @class = "form-control" } })
     </div>
     <div class="form-group">
         @Html.LabelFor(c => c.Movie.Stock_Available)
-        @Html.DropDownListFor(c => c.Movie.Stock_Available,
-       new SelectList(Model.genres,"id","Genre"),"---select---",
-       new { @class = "form-control" })
+        @*@Html.DropDownListFor(c => c.Movie.Stock_Available,
+            new SelectList(Model.genres,"id","Genre"),"---select---",
+            new { @class = "form-control" })*@
+        @Html.EditorFor(m => m.Movie.Stock_Available, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Genre.Name)
+        @Html.EditorFor(m => m.Movie.Genre.Name, new { htmlAttributes = new { @class = "form-control" } })
     </div>
     <div class="form-group">
         <input type="submit" name="cmdSubmit" value="Add New" class="btn btn-primary" />

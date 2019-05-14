@@ -10,6 +10,8 @@ using RentedMovieOneValid.View_Model;
 
 namespace RentedMovieOneValid.Controllers
 {
+    [RequireHttps]
+    [Authorize]
     public class MoviesController : Controller
     {
         private ApplicationDbContext dbContext=null;
@@ -62,6 +64,36 @@ namespace RentedMovieOneValid.Controllers
             dbContext.Movies.Add(movie);
             dbContext.SaveChanges();
             return RedirectToAction("Index_Movie", "Movies");
+        }
+        [HttpGet]
+        [Authorize(Users ="bhargav,bhargavas")]
+        public ActionResult Edit_Movie(int id)
+        {
+            var movie = dbContext.Movies.SingleOrDefault(c => c.id == id);
+            var genre = dbContext.genres.ToList();
+           MovieMembeshipViewModel viewModel = new MovieMembeshipViewModel
+            {
+                Movie = movie,
+                genres = genre
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Edit_Movie(Movie movie)
+        {
+            var movieTbl = dbContext.Movies.SingleOrDefault(c => c.id == movie.id);
+            if (movieTbl == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                movieTbl.MovieName = movie.MovieName;
+                movieTbl.ReleaseDate = movie.ReleaseDate;
+                movieTbl.Adddate = movie.Adddate;
+                dbContext.SaveChanges();
+            }
+            return RedirectToAction("Index_Movie", "Movie");
         }
     }
 }

@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44371</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201905061016287_Updatedatecolwithdatetime.Designer.cs">
       <DependentUpon>201905061016287_Updatedatecolwithdatetime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905070656157_AddingRequiredFieldToMovie.cs" />
+    <Compile Include="Migrations\201905070656157_AddingRequiredFieldToMovie.Designer.cs">
+      <DependentUpon>201905070656157_AddingRequiredFieldToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -361,6 +365,7 @@
     <Content Include="Views\Movies\Movie_Details.cshtml" />
     <Content Include="Views\Movies\Create_Movie.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Movies\Edit_Movie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -422,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905061016287_Updatedatecolwithdatetime.resx">
       <DependentUpon>201905061016287_Updatedatecolwithdatetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905070656157_AddingRequiredFieldToMovie.resx">
+      <DependentUpon>201905070656157_AddingRequiredFieldToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

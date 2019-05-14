@@ -58,11 +58,11 @@ namespace RentedMovieOneValid
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "390485606587-hrcu1d7s32lgsrpu2n4tpgsj91pi68hk.apps.googleusercontent.com",
+                ClientSecret = "dWMCyfLyh6sHc_Sf_lX8dofP"
+            });
         }
     }
 }

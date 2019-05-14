@@ -1,16 +1,17 @@
-﻿@model List<RentedMovieOneValid.Models.Movies>
+﻿@model List<RentedMovieOneValid.Models.Movie>
 @{
     ViewBag.Title = "Index_Movie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Add New Movie","Create","Movies")
+@Html.ActionLink("Add New Movie", "Create_Movie", "Movies")
 <h2>Movie Details</h2>
 <table class="table table-bordered table-hover" >
     <tr>
         @*<td>Movie_id</td>*@
         <td>Movie_Name</td>
         <td>Genre</td>
+        <td>Action</td>
     </tr>
     <tbody>
         @foreach(var b in Model)
@@ -20,7 +21,10 @@
                     @Html.ActionLink(b.MovieName, "Movie_Details", "Movies", new { id = b.id }, null)
                 </td>
                 <td>
-                    @b.Genre.GenreName
+                    @b.Genre.Name
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Movies", new { id = b.id }, null)
                 </td>
             </tr>
         }

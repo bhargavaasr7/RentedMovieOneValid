@@ -1,0 +1,46 @@
+﻿@model RentedMovieOneValid.View_Model.MovieMembeshipViewModel
+@{
+    ViewBag.Title = "Edit_Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Edit_Movie</h2>
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c => c.Movie.id)
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.Name)
+        @Html.TextBoxFor(c => c.Movie.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.Adddate)
+        @Html.TextBoxFor(c => c.Movie.Adddate, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.ReleaseDate)
+        @Html.TextBoxFor(c => c.Movie.ReleaseDate, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.GenreId)
+        @Html.DropDownListFor(c => c.Movie.GenreId,
+       new SelectList(Model.membershipTypes,"id","MembershipTypeName"),"---select---",
+       new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" name="cmdSubmit" value="Save changes" class="btn btn-primary" />
+    </div>
+}
+@section Scripts{
+    @Scripts.Render("~/Scripts/Jqueryui");
+    @Scripts.Render("~/Styles/jquerycss");
+    <script>
+        $(document).ready(function () {
+            $("#Customer_DateOfBirth").datepicker({
+                changeYear: true,
+                changeMonth: true,
+                dateFormat: "dd-mm-yy"
+            });
+        });
+    </script>
+}
